@@ -1,0 +1,22 @@
+package com.company.electronic_shopping_chart.web.cart.view;
+
+import com.company.electronic_shopping_chart.web.cart.model.CartItem;
+
+public class CreateCartItemResponse {
+    private CartItem item;
+
+    public CreateCartItemResponse() {
+    }
+
+    public CreateCartItemResponse(CartItem item) {
+        this.item = item;
+    }
+
+    public CartItem getItem() {
+        return item;
+    }
+
+    public void setItem(CartItem item) {
+        this.item = item;
+    }
+}
