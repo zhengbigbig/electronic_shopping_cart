@@ -1,10 +1,38 @@
 package com.company.electronic_shopping_cart.web.product.model;
 
+/*
+    数据库中表在java代码里的映射和封装
+    数据 和 对象的Mapping
+ */
+
+import javax.annotation.processing.Generated;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
+
+    /*
+        Product的属性  以及 它在数据表中的映射
+     */
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "price")
     private double price;
+
+
+    /*
+        默认的构造方法
+     */
 
     public Product() {
     }
