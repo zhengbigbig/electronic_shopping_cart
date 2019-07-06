@@ -8,7 +8,7 @@ package com.company.electronic_shopping_cart.web.product.model;
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
 
-@Entity
+@Entity  // 数据实体 数据表
 @Table(name = "product")
 public class Product {
 

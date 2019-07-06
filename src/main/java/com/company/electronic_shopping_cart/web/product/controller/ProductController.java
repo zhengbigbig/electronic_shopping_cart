@@ -16,7 +16,7 @@ public class ProductController {
     private ProductDao productDao;
     private CreateProductRequestValidator createProductRequestValidator;
 
-    public ProductController(CreateProductRequestValidator createProductRequestValidator,ProductDao productDao) {
+    public ProductController(CreateProductRequestValidator createProductRequestValidator, ProductDao productDao) {
         this.createProductRequestValidator = createProductRequestValidator;
         this.productDao = productDao;
     }
@@ -40,35 +40,36 @@ public class ProductController {
     @GetMapping("/pooducts/{productId}")
     public ResponseEntity<GetProductResponse> getProduct(@PathVariable long productId) {
         Product product = productDao.getById(productId);
-        if(product == null){
+        if (product == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else {
+        } else {
             return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
         }
     }
 
     /**
      * create product
+     *
      * @param createProductRequest
      * @return
      */
-    @PostMapping("products")
+    @PostMapping("/products")
     public ResponseEntity<CreateProductResponse> createProduct(@RequestBody CreateProductRequest createProductRequest) {
         boolean validate = createProductRequestValidator.validate(createProductRequest);
 
-        Product product = productDao.save(new Product(createProductRequest.getName(),createProductRequest.getDescription(),createProductRequest.getPrice()));
+        Product product = productDao.save(new Product(createProductRequest.getName(), createProductRequest.getDescription(), createProductRequest.getPrice()));
         return new ResponseEntity<>(new CreateProductResponse(product), HttpStatus.CREATED);
     }
 
     /*
-    * 已经定义好了输入和输出
-    * 同时也定义好了期待的输入内容和相应的执行结果
-    * 想象成一个黑箱，是不是可以写测试了，即使没有实现，但是起始状态测试是不能通过的，只是用来帮助我们明确功能
-    * 开发就转换成写代码让测试通过！ ==》 符合功能的逻辑要求，其实这个就是测试驱动开发！
+     * 已经定义好了输入和输出
+     * 同时也定义好了期待的输入内容和相应的执行结果
+     * 想象成一个黑箱，是不是可以写测试了，即使没有实现，但是起始状态测试是不能通过的，只是用来帮助我们明确功能
+     * 开发就转换成写代码让测试通过！ ==》 符合功能的逻辑要求，其实这个就是测试驱动开发！
      */
 
     @PutMapping("/products/{productId}")
-    public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable long productId,@RequestBody UpdateProductRequest updateProductRequest){
+    public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable long productId, @RequestBody UpdateProductRequest updateProductRequest) {
         Product product = productDao.getById(productId);
 
         if (product == null) {
