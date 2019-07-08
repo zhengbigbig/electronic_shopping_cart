@@ -71,7 +71,7 @@ public class ProductController {
     @PutMapping("/products/{productId}")
     public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable long productId, @RequestBody UpdateProductRequest updateProductRequest) {
         Product product = productDao.getById(productId);
-
+        System.out.println("product1"+product);
         if (product == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -80,7 +80,7 @@ public class ProductController {
         product.setDescription(updateProductRequest.getDescription());
         product.setPrice(updateProductRequest.getPrice());
         product = productDao.save(product);
-
+        System.out.println("product2"+product);
         return new ResponseEntity<>(new UpdateProductResponse(product), HttpStatus.OK);
     }
 }
