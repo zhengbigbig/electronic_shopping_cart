@@ -32,7 +32,7 @@ public class SessionController {
      * Login
      */
     @PostMapping("/session")
-    public ResponseEntity login(HttpServletResponse response, @RequestBody LoginRequest login) {
+    public ResponseEntity login(HttpServletResponse response, @RequestBody LoginRequest login) { // http://www.51gjie.com/javaweb/964.html
         User user = userDao.getByName(login.getUsername());
         if (user == null || !user.getPassword().equals(login.getPassword())) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);

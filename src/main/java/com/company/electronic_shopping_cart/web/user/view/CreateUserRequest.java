@@ -14,20 +14,9 @@ public class CreateUserRequest {
     }
 
     public String getUsername() {
-        username = "abc;";
-        username = username + username;
-        username = username + username;
-        username = username + username;
         return username;
     }
 
-    public String getUsername2() {
-        username = "abc;";
-        username = username + username;
-        username = username + username;
-        username = username + username;
-        return username;
-    }
 
     public void setUsername(String username) {
         this.username = username;
