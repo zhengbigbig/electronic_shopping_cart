@@ -45,7 +45,7 @@ public class OrderController {
         return new ResponseEntity<>(new GetOrderResponse(order),HttpStatus.OK);
     }
 
-    @PostMapping("orders")
+    @PostMapping("/orders")
     public ResponseEntity<CreateOrderResponse> createOrder(@RequestBody CreateOrderRequest createOrderRequest){
         User user = userDao.getById(createOrderRequest.getUserId());
         Product product = productDao.getById(createOrderRequest.getProductId());
@@ -54,7 +54,7 @@ public class OrderController {
         return new ResponseEntity<>(new CreateOrderResponse(order),HttpStatus.CREATED);
     }
 
-    @PutMapping("orders/{orderId}")
+    @PutMapping("/orders/{orderId}")
     public ResponseEntity<UpdateOrderResponse> updateOrder(@PathVariable long orderId, @RequestBody UpdateOrderRequest updateOrderRequest){
         Order order = orderDao.getById(orderId);
         if(order == null){
@@ -67,7 +67,7 @@ public class OrderController {
         return new ResponseEntity<>(new UpdateOrderResponse(order),HttpStatus.OK);
     }
 
-    @DeleteMapping("orders/{orderId}")
+    @DeleteMapping("/orders/{orderId}")
     public ResponseEntity deleteOrder(@PathVariable long orderId){
         Order order = orderDao.getById(orderId);
         if(order == null){
