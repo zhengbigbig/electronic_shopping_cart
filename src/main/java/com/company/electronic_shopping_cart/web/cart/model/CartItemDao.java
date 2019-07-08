@@ -3,7 +3,15 @@ package com.company.electronic_shopping_cart.web.cart.model;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CartItemDao extends CrudRepository <CartItem,Long>{
+import java.util.List;
 
+@Repository
+public interface CartItemDao extends CrudRepository<CartItem, Long> {
+    CartItem getById(long id);
+
+    List<CartItem> findAll();
+
+    CartItem save(CartItem cartItem);
+
+    void delete(CartItem cartItem);
 }
