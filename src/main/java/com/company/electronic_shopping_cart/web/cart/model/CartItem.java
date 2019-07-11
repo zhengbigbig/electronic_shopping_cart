@@ -4,7 +4,7 @@ import com.company.electronic_shopping_cart.web.product.model.Product;
 import com.company.electronic_shopping_cart.web.user.model.User;
 
 import javax.persistence.*;
- // test
+ // test1
 @Entity
 @Table(name="cart_item")
 public class CartItem {
