@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="cart_item")
 public class CartItem {
+    // 自动生成，策略
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
