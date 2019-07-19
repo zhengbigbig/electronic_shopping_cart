@@ -37,7 +37,7 @@ public class SessionController {
         if (user == null || !user.getPassword().equals(login.getPassword())) {
             return new ResponseEntity(HttpStatus.UNAUTHORIZED);
         }
-
+        // 判断用户是否存在
         // 添加Session
         String token = UUID.randomUUID().toString(); // 随机数
         sessionManager.getSessions().put(
