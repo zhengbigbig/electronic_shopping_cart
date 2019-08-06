@@ -43,7 +43,7 @@ public class SessionController {
         sessionManager.getSessions().put(
                 user.getId(), new Session(user.getId(), token)
         );
-        System.out.println("我是安琪拉");
+        System.out.println("我是哥斯拉");
         // 设置Cookie
         response.addCookie(new Cookie(USER_ID,Long.toString(user.getId())));
         response.addCookie(new Cookie(SESSION_TOKEN,token));
